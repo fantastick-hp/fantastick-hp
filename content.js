@@ -64,6 +64,13 @@ const SITE_CONTENT = {
     "閉会"
   ],
 
+  // ---- お知らせ・更新履歴 ----
+  // 新しいお知らせは配列の先頭に追加してください（上から新しい順に表示されます）。
+  // date は表示用の文字列で構いません。例: "2026年3月1日"
+  news: [
+    // { date: "2026年3月1日", text: "公式サイトを公開しました。" },
+  ],
+
   // ---- SNS ----
   snsUrl: "https://x.com/fantastickjug",
   snsHandle: "@fantastickjug",

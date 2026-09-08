@@ -66,6 +66,50 @@
   .todo-tag.on-dark{border-color:var(--spot-cyan);color:var(--spot-cyan);}
   .todo-tag::before{content:"●";font-size:0.55rem;}
 
+  /* ---------- INTRO SCREEN ---------- */
+  .intro-screen{
+    position:fixed;inset:0;z-index:999;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--ink);color:var(--text-on-dark);
+    touch-action:none;
+    transition:opacity .5s ease, visibility .5s ease;
+  }
+  .intro-screen::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:
+      radial-gradient(560px 420px at 15% 15%, rgba(255,201,60,0.16), transparent 70%),
+      radial-gradient(620px 480px at 85% 30%, rgba(255,61,127,0.20), transparent 70%),
+      radial-gradient(500px 400px at 60% 90%, rgba(46,230,214,0.14), transparent 70%);
+  }
+  .intro-content{position:relative;text-align:center;padding:24px;}
+  .intro-content .wordmark{
+    font-size:clamp(2.6rem,9vw,5.5rem);line-height:1;
+    opacity:0;animation:riseIn .8s ease forwards;animation-delay:.1s;
+  }
+  .intro-content .intro-tagline{
+    margin-top:14px;color:var(--text-muted-dark);font-size:1rem;
+    opacity:0;animation:riseIn .8s ease forwards;animation-delay:.3s;
+  }
+  .intro-hint{
+    margin-top:56px;display:flex;flex-direction:column;align-items:center;gap:10px;
+    color:var(--text-muted-dark);font-size:0.85rem;
+    opacity:0;animation:riseIn .8s ease forwards;animation-delay:.6s;
+  }
+  .intro-hint .chevron{
+    width:22px;height:22px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;
+    transform:rotate(45deg);animation:introBounce 1.6s ease-in-out infinite;
+  }
+  @keyframes introBounce{
+    0%,100%{transform:rotate(45deg) translate(0,0);}
+    50%{transform:rotate(45deg) translate(6px,6px);}
+  }
+  .intro-screen.is-closing{opacity:0;visibility:hidden;}
+  @media(prefers-reduced-motion:reduce){
+    .intro-content .wordmark, .intro-content .intro-tagline, .intro-hint, .intro-hint .chevron{
+      animation:none;opacity:1;
+    }
+  }
+
   /* ---------- NAV ---------- */
   .site-nav{
     position:sticky;top:0;z-index:100;
@@ -170,6 +214,25 @@
   .btn-dark{background:var(--ink);color:var(--paper);}
   .btn-outline-dark{border-color:var(--ink);color:var(--ink);}
   .btn.disabled{opacity:0.55;cursor:not-allowed;}
+
+  /* ---------- NEWS ---------- */
+  .news{background:var(--paper-dim);}
+  .news h2{border-left:5px solid var(--spot-magenta);padding-left:18px;}
+  .news-list{margin-top:32px;border-top:1px solid rgba(33,26,51,0.12);}
+  .news-item{
+    display:flex;gap:24px;padding:18px 0;
+    border-bottom:1px solid rgba(33,26,51,0.12);
+  }
+  .news-date{
+    flex:none;width:130px;color:var(--text-muted-light);
+    font-weight:700;font-size:0.9rem;
+  }
+  .news-text{flex:1;}
+  .news-empty{margin-top:32px;color:var(--text-muted-light);}
+  @media(max-width:600px){
+    .news-item{flex-direction:column;gap:4px;}
+    .news-date{width:auto;}
+  }
 
   /* ---------- ABOUT ---------- */
   .about{background:var(--paper);}
@@ -311,11 +374,56 @@
 </head>
 <body>
 
+<noscript><style>.intro-screen{display:none;}</style></noscript>
+<div class="intro-screen" id="introScreen" aria-hidden="true">
+  <div class="intro-content">
+    <div class="wordmark">FantaStick</div>
+    <p class="intro-tagline">棒が舞い、技が輝く一日。</p>
+    <div class="intro-hint">
+      <span>スクロール または タップして進む</span>
+      <span class="chevron"></span>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var intro = document.getElementById('introScreen');
+  if(!intro) return;
+
+  var alreadyShown = false;
+  try{ alreadyShown = sessionStorage.getItem('fantastickIntroShown') === '1'; }catch(e){}
+  if(alreadyShown){
+    intro.style.display = 'none';
+    return;
+  }
+
+  document.documentElement.style.overflow = 'hidden';
+  document.body.style.overflow = 'hidden';
+
+  var closed = false;
+  var types = ['wheel', 'touchstart', 'keydown', 'click'];
+
+  function close(){
+    if(closed) return;
+    closed = true;
+    try{ sessionStorage.setItem('fantastickIntroShown', '1'); }catch(e){}
+    types.forEach(function(type){ window.removeEventListener(type, close); });
+    document.documentElement.style.overflow = '';
+    document.body.style.overflow = '';
+    intro.classList.add('is-closing');
+    setTimeout(function(){ intro.style.display = 'none'; }, 550);
+  }
+
+  types.forEach(function(type){ window.addEventListener(type, close, {passive:true}); });
+})();
+</script>
+
 <nav class="site-nav">
   <div class="nav-inner">
     <a href="#top" class="nav-logo wordmark">FantaStick</a>
     <button class="nav-toggle" id="navToggle" aria-label="メニュー">☰</button>
     <ul class="nav-links" id="navLinks">
+      <li><a href="#news">お知らせ</a></li>
       <li><a href="#about">概要</a></li>
       <li><a href="#sticking">SticKING</a></li>
       <li><a href="#program">プログラム</a></li>
@@ -361,6 +469,14 @@
     </div>
   </div>
 </header>
+
+<section class="news" id="news">
+  <div class="container">
+    <h2>お知らせ</h2>
+    <div class="news-list" id="newsList"></div>
+    <p class="news-empty" id="newsEmpty">現在お知らせはありません。日程・会場などが決まり次第、こちらでお知らせします。</p>
+  </div>
+</section>
 
 <section class="about" id="about">
   <div class="container about-grid">
@@ -535,6 +651,21 @@
   }
 
   function applyContent(c){
+    // お知らせ
+    const newsListEl = document.getElementById('newsList');
+    const newsEmptyEl = document.getElementById('newsEmpty');
+    if(c.news && c.news.length){
+      newsEmptyEl.remove();
+      c.news.forEach(item => {
+        const row = document.createElement('div');
+        row.className = 'news-item';
+        row.innerHTML = '<div class="news-date"></div><div class="news-text"></div>';
+        row.querySelector('.news-date').textContent = item.date;
+        row.querySelector('.news-text').textContent = item.text;
+        newsListEl.appendChild(row);
+      });
+    }
+
     // 開催日
     const dateValueEl = document.getElementById('heroDateValue');
     if(c.eventDateConfirmed && c.eventDate){
