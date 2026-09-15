@@ -18,8 +18,8 @@
 const SITE_CONTENT = {
 
   // ---- 開催日 ----
-  eventDate: "",              // 例: "2027年2月21日（日）"
-  eventDateConfirmed: false,  // 決まったら true に
+  eventDate: "2027年2月27日（土）",
+  eventDateConfirmed: true,   // 決まったら true に
 
   // ---- 今年の会場（決まるまでは空のままでOK）----
   venue: {
@@ -44,12 +44,12 @@ const SITE_CONTENT = {
 
   // ---- チケット・参加費（去年と同額なら変更不要）----
   tickets: {
-    generalAdvance: 1000,   // 観覧：前売り
-    generalDoor: 1500,      // 観覧：当日
+    generalAdvance: 1000,   // イベント参加：前売り
+    generalDoor: 1500,      // イベント参加：当日
     juniorEntry: 3000,      // SticKING ジュニア部門 出場料
     seniorEntry: 4000       // SticKING シニア・フリー部門 出場料
   },
-  ticketFormUrl: "",   // 観覧チケット申込フォームのURL（空なら「準備中」表示）
+  ticketFormUrl: "",   // イベント参加チケット申込フォームのURL（空なら「準備中」表示）
   entryFormUrl: "",    // SticKINGエントリーフォームのURL（空なら「準備中」表示）
 
   // ---- 当日タイムテーブル ----
@@ -73,8 +73,5 @@ const SITE_CONTENT = {
 
   // ---- SNS ----
   snsUrl: "https://x.com/fantastickjug",
-  snsHandle: "@fantastickjug",
-
-  // ---- フッターの著作権表記（開始年。終了年は自動で今年になります）----
-  copyrightStartYear: 2004
+  snsHandle: "@fantastickjug"
 };

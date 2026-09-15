@@ -350,6 +350,7 @@
   }
   .form-mock textarea{min-height:100px;resize:vertical;}
   .form-note{font-size:0.8rem;color:var(--text-muted-dark);margin-top:4px;max-width:none;}
+  .form-note.on-light{color:var(--text-muted-light);}
   @media(max-width:820px){.contact-grid{grid-template-columns:1fr;}}
   .sns-link{
     display:inline-flex;align-items:center;gap:10px;margin-top:16px;
@@ -458,13 +459,9 @@
         <div class="label">会場</div>
         <div class="value" id="heroVenueValue">調整中<span class="todo-tag on-dark" id="heroVenueTag">要確定</span></div>
       </div>
-      <div class="fact-card" id="heroRefCard">
-        <div class="label">前回実績</div>
-        <div class="value" id="heroRefValue">かながわアートホール</div>
-      </div>
     </div>
     <div class="cta-row">
-      <a href="#tickets" class="btn btn-primary">チケット・参加費を見る</a>
+      <a href="#tickets" class="btn btn-primary">参加はこちらから</a>
       <a href="#sticking" class="btn btn-outline">SticKINGについて</a>
     </div>
   </div>
@@ -487,7 +484,7 @@
     <ul class="fact-list">
       <li><span class="k">第1回開催</span><span class="v">2004年</span></li>
       <li><span class="k">主催</span><span class="v">FantaStick実行委員会</span></li>
-      <li><span class="k">主なコンテンツ</span><span class="v">SticKING（競技会）／フリーパフォーマンス</span></li>
+      <li><span class="k">主なコンテンツ</span><span class="v">SticKING／交流会／GS</span></li>
       <li><span class="k">これまでの開催地</span><span class="v">東京・横浜 各地</span></li>
     </ul>
   </div>
@@ -495,7 +492,7 @@
 
 <section class="highlights">
   <div class="container">
-    <h2>昨年の様子</h2>
+    <h2>FantaStick2025の内容</h2>
     <p class="lede">前回大会のダイジェスト映像です。</p>
     <div class="video-frame">
       <iframe id="highlightVideo" src="" title="FantaStick 前回大会ダイジェスト" allowfullscreen></iframe>
@@ -546,19 +543,20 @@
 <section class="tickets" id="tickets">
   <div class="container">
     <h2>チケット・参加費</h2>
-    <p class="lede">観覧チケットと、SticKING出場エントリーは別料金です。金額は前回実績を参考値として掲載しています。</p>
+    <p class="lede">イベント参加チケットと、SticKING出場エントリーは別料金です。金額は前回実績を参考値として掲載しています。</p>
     <div class="price-grid">
       <div class="price-card">
-        <h3>観覧チケット</h3>
+        <h3>イベント参加チケット</h3>
         <div class="price-row"><span class="k">前売り</span><span class="v" id="priceGeneralAdvance">1,000円</span></div>
         <div class="price-row"><span class="k">当日</span><span class="v" id="priceGeneralDoor">1,500円</span></div>
-        <a href="#" id="ticketFormBtn" class="btn btn-dark disabled">観覧チケットを申し込む<span class="todo-tag">フォーム準備中</span></a>
+        <a href="#" id="ticketFormBtn" class="btn btn-dark disabled">イベント参加チケットを申し込む<span class="todo-tag">フォーム準備中</span></a>
       </div>
       <div class="price-card">
         <h3>SticKING 出場エントリー</h3>
         <div class="price-row"><span class="k">ジュニア部門</span><span class="v" id="priceJunior">3,000円</span></div>
         <div class="price-row"><span class="k">シニア・フリー部門</span><span class="v" id="priceSenior">4,000円</span></div>
         <a href="#" id="entryFormBtn" class="btn btn-dark disabled">SticKINGにエントリーする<span class="todo-tag">フォーム準備中</span></a>
+        <p class="form-note on-light">※SticKING出場エントリーは、イベント参加チケットとは別に申し込みが必要です。</p>
       </div>
     </div>
   </div>
@@ -624,12 +622,12 @@
     <span class="wordmark" style="font-size:1rem;">FantaStick</span>
     <span>FantaStick実行委員会 主催 ／ 2004年より開催</span>
     <div style="width:100%;text-align:center;font-size:0.7rem;opacity:0.6;">動作確認中</div>
-    <span>© <span id="copyrightYear">2004–2026</span> FantaStick実行委員会</span>
+    <span>© <span id="copyrightYear">2026</span> FantaStick実行委員会</span>
   </div>
 </footer>
 
 <div class="sticky-cta">
-  <a href="#tickets" class="btn btn-primary">チケット・参加費を見る</a>
+  <a href="#tickets" class="btn btn-primary">参加はこちらから</a>
 </div>
 
 <script src="content.js"></script>
@@ -680,10 +678,6 @@
       venueValueEl.firstChild.nodeValue = c.venue.name;
       const tag = document.getElementById('heroVenueTag');
       if(tag) tag.remove();
-      const refCard = document.getElementById('heroRefCard');
-      if(refCard) refCard.remove();
-    } else {
-      document.getElementById('heroRefValue').textContent = c.lastYear.name;
     }
 
     // 前回大会ダイジェスト動画
@@ -696,7 +690,7 @@
     document.getElementById('priceGeneralDoor').textContent = c.tickets.generalDoor.toLocaleString() + '円';
     document.getElementById('priceJunior').textContent = c.tickets.juniorEntry.toLocaleString() + '円';
     document.getElementById('priceSenior').textContent = c.tickets.seniorEntry.toLocaleString() + '円';
-    setFormButton('ticketFormBtn', c.ticketFormUrl, '観覧チケットを申し込む');
+    setFormButton('ticketFormBtn', c.ticketFormUrl, 'イベント参加チケットを申し込む');
     setFormButton('entryFormBtn', c.entryFormUrl, 'SticKINGにエントリーする');
 
     // アクセス（会場が未確定なら前回実績を表示）
@@ -739,8 +733,7 @@
     });
 
     // フッター著作権年
-    document.getElementById('copyrightYear').textContent =
-      c.copyrightStartYear + '–' + new Date().getFullYear();
+    document.getElementById('copyrightYear').textContent = new Date().getFullYear();
   }
 
   if(typeof SITE_CONTENT !== 'undefined'){
