@@ -23,10 +23,13 @@ const SITE_CONTENT = {
 
   // ---- 今年の会場（決まるまでは空のままでOK）----
   venue: {
-    confirmed: false,         // 今年の会場が決まったら true に
-    name: "",                 // 例: "かながわアートホール"
-    address: "",               // 例: "〒240-0017　横浜市...”
-    access: []                 // 例: ["相鉄線「星川駅」より徒歩20分"]
+    confirmed: true,          // 今年の会場が決まったら true に
+    name: "かながわアートホール",
+    address: "〒240-0017　横浜市保土ケ谷区花見台4番2号（県立保土ケ谷公園内）",
+    access: [
+      "相鉄線「星川駅」より徒歩20分",
+      "市営バス「明神台」下車 徒歩3分"
+    ]
   },
 
   // ---- 前回の実績（会場が未確定の間、参考情報として表示されます）----
@@ -70,6 +73,9 @@ const SITE_CONTENT = {
   news: [
     // { date: "2026年3月1日", text: "公式サイトを公開しました。" },
   ],
+
+  // ---- お問い合わせフォームの送信先メールアドレス ----
+  contactEmail: "juggling.fantastick@gmail.com",
 
   // ---- SNS ----
   snsUrl: "https://x.com/fantastickjug",

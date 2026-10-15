@@ -237,7 +237,6 @@
   /* ---------- ABOUT ---------- */
   .about{background:var(--paper);}
   .about-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:60px;align-items:start;}
-  .about h2 .accent{box-shadow:inset 0 -0.35em 0 var(--spot-yellow);}
   .fact-list{list-style:none;border-top:1px solid var(--ink-line);margin-top:6px;}
   .fact-list li{
     display:flex;justify-content:space-between;gap:20px;
@@ -261,26 +260,27 @@
   /* ---------- STICKING ---------- */
   .sticking{background:var(--paper);}
   .sticking h2{border-left:5px solid var(--spot-magenta);padding-left:18px;}
-  .division-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:40px;}
+  .division-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:26px;margin-top:40px;}
   .division-card{
     background:var(--ink);color:var(--text-on-dark);
     border-radius:22px;padding:32px;position:relative;overflow:hidden;
   }
   .division-card.senior{background:#2a1430;}
+  .division-card.free{background:#10282b;}
   .division-card .tag{
     display:inline-block;font-size:0.8rem;font-weight:700;
     padding:4px 14px;border-radius:999px;margin-bottom:18px;
   }
   .division-card.junior .tag{background:var(--spot-yellow);color:var(--ink);}
   .division-card.senior .tag{background:var(--spot-magenta);color:var(--ink);}
+  .division-card.free .tag{background:var(--spot-cyan);color:var(--ink);}
   .division-card h3{font-size:1.5rem;margin-bottom:16px;}
   .division-card ul{list-style:none;}
   .division-card li{
     display:flex;justify-content:space-between;gap:16px;
     padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.12);font-size:0.94rem;
   }
-  .division-card li .k{color:var(--text-muted-dark);}
-  @media(max-width:820px){.division-grid{grid-template-columns:1fr;}}
+  .division-card li .k{color:var(--text-muted-dark);flex:none;}
   .judge-note{
     margin-top:30px;padding:20px 24px;background:var(--paper-dim);
     border-radius:16px;font-size:0.92rem;color:var(--text-muted-light);max-width:none;
@@ -379,7 +379,7 @@
 <div class="intro-screen" id="introScreen" aria-hidden="true">
   <div class="intro-content">
     <div class="wordmark">FantaStick</div>
-    <p class="intro-tagline">棒が舞い、技が輝く一日。</p>
+    <p class="intro-tagline">犬も歩けば棒でジャグる</p>
     <div class="intro-hint">
       <span>スクロール または タップして進む</span>
       <span class="chevron"></span>
@@ -428,7 +428,7 @@
       <li><a href="#about">概要</a></li>
       <li><a href="#sticking">SticKING</a></li>
       <li><a href="#program">プログラム</a></li>
-      <li><a href="#tickets">チケット</a></li>
+      <li><a href="#tickets">参加費</a></li>
       <li><a href="#access">アクセス</a></li>
       <li><a href="#contact" class="nav-cta">お問い合わせ</a></li>
     </ul>
@@ -448,8 +448,8 @@
   <div class="container hero-inner">
     <p class="hero-kicker">スティックジャグリングイベント</p>
     <h1 class="wordmark"><span>Fanta</span><span>Stick</span></h1>
-    <p class="hero-tagline">棒が舞い、技が輝く一日。</p>
-    <p class="hero-sub">デビルスティック、フラワースティック、スタッフ。2004年から続く、スティックジャグリング専門のイベントです。競技会「SticKING」やフリーパフォーマンスなど、毎回さまざまな企画をお届けします。</p>
+    <p class="hero-tagline">犬も歩けば棒でジャグる</p>
+    <p class="hero-sub">デビルスティック、フラワースティック、スタッフ。2004年から続く、スティックジャグリング専門のイベントです。競技会「SticKING」（フリーパフォーマンス部門を含む）のほか、交流やワークショップなど、毎回さまざまな企画をお届けします。</p>
     <div class="fact-row">
       <div class="fact-card">
         <div class="label">開催日</div>
@@ -478,8 +478,8 @@
 <section class="about" id="about">
   <div class="container about-grid">
     <div>
-      <h2>FantaStick<span class="accent">とは</span></h2>
-      <p class="lede">デビルスティックやフラワースティック、スタッフなど、棒を使ったジャグリング「スティックジャグリング」に特化したイベントです。2004年に第1回が開催されて以来、有志の実行委員会によって継続的に開催されてきました。競技会「SticKING」や、経験を問わず参加できるフリーパフォーマンスなど、毎回さまざまな企画が行われています。</p>
+      <h2>FantaStickとは</h2>
+      <p class="lede">デビルスティックやフラワースティック、スタッフなど、棒を使ったジャグリング「スティックジャグリング」に特化したイベントです。2004年に第1回が開催されて以来、有志の実行委員会によって継続的に開催されてきました。競技会「SticKING」（フリーパフォーマンス部門を含む）のほか、交流やワークショップなど、毎回さまざまな企画が行われています。</p>
     </div>
     <ul class="fact-list">
       <li><span class="k">第1回開催</span><span class="v">2004年</span></li>
@@ -492,7 +492,7 @@
 
 <section class="highlights">
   <div class="container">
-    <h2>FantaStick2024の内容</h2>
+    <h2>過去のFantaStickの内容</h2>
     <p class="lede">前回大会のダイジェスト映像です。</p>
     <div class="video-frame">
       <iframe id="highlightVideo" src="" title="FantaStick 前回大会ダイジェスト" allowfullscreen></iframe>
@@ -503,7 +503,7 @@
 <section class="sticking" id="sticking">
   <div class="container">
     <h2>SticKING — 競技会</h2>
-    <p class="lede">棒ジャグリングの技と表現を競う、ルーティン形式の競技会です。「難易度」「完成度」「演技構成」「新奇性」の4項目、審査員3名による計100点満点で審査されます。</p>
+    <p class="lede">棒ジャグリングの技と表現を競う、ルーティン形式の競技会です。ジュニア部門・シニア部門は「難易度」「完成度」「演技構成」「新奇性」の4項目、審査員3名による計100点満点で審査されます。フリーパフォーマンス部門は順位付けを行いません。</p>
     <div class="division-grid">
       <div class="division-card junior">
         <span class="tag">ジュニア部門</span>
@@ -525,6 +525,15 @@
           <li><span class="k">複数人での出演</span><span class="v">可</span></li>
         </ul>
       </div>
+      <div class="division-card free">
+        <span class="tag">フリーパフォーマンス部門</span>
+        <h3>順位付けのない部門</h3>
+        <ul>
+          <li><span class="k">演技時間</span><span class="v">5分以内</span></li>
+          <li><span class="k">出場料</span><span class="v">4,000円</span></li>
+          <li><span class="k">順位付け</span><span class="v">なし</span></li>
+        </ul>
+      </div>
     </div>
     <p class="judge-note">部門の詳細な規定・注意事項・審査基準の全文は、別途公開する要項ページでご確認いただけます。<span class="todo-tag">要項ページを準備</span></p>
   </div>
@@ -542,7 +551,7 @@
 
 <section class="tickets" id="tickets">
   <div class="container">
-    <h2>チケット・参加費</h2>
+    <h2>参加費</h2>
     <p class="lede">イベント参加チケットと、SticKING出場エントリーは別料金です。金額は前回実績を参考値として掲載しています。</p>
     <div class="price-grid">
       <div class="price-card">
@@ -556,7 +565,7 @@
         <div class="price-row"><span class="k">ジュニア部門</span><span class="v" id="priceJunior">3,000円</span></div>
         <div class="price-row"><span class="k">シニア・フリー部門</span><span class="v" id="priceSenior">4,000円</span></div>
         <a href="#" id="entryFormBtn" class="btn btn-dark disabled">SticKINGにエントリーする<span class="todo-tag">フォーム準備中</span></a>
-        <p class="form-note on-light">※SticKING出場エントリーは、イベント参加チケットとは別に申し込みが必要です。</p>
+        <p class="form-note on-light">※SticKING出場エントリーされた方でも、別途FantaStick参加申し込みが必要になります。</p>
       </div>
     </div>
   </div>
@@ -585,33 +594,24 @@
 <section class="goods">
   <div class="container">
     <h2>グッズ</h2>
-    <p class="lede">オリジナルTシャツをご用意しています。会場でのお支払いに対応しているので、事前準備は不要です。</p>
-    <div class="goods-row">
-      <div class="goods-swatches">
-        <div class="swatch" style="background:var(--spot-yellow);">M</div>
-        <div class="swatch" style="background:var(--spot-magenta);color:#fff;">L</div>
-        <div class="swatch" style="background:var(--spot-cyan);">XL</div>
-        <div class="swatch" style="background:var(--ink);color:#fff;">3XL</div>
-      </div>
-      <p class="lede" style="margin:0;">M・L・XL・3XLの4サイズからお選びいただけます。</p>
-    </div>
+    <p class="lede">現在作成中です。詳細が決まり次第お知らせします。<span class="todo-tag">作成中</span></p>
   </div>
 </section>
 
 <section class="contact" id="contact">
   <div class="container contact-grid">
     <div class="sponsor-block">
-      <h2>協賛・お問い合わせ</h2>
-      <p>FantaStickは、有志の実行委員会と、ご協賛いただく企業・団体の皆さまに支えられて開催しています。協賛のご相談、取材、その他お問い合わせは、X（旧Twitter）または右のフォームからお気軽にご連絡ください。</p>
+      <h2>お問い合わせ</h2>
+      <p>取材、その他お問い合わせは、X（旧Twitter）または右のフォームからお気軽にご連絡ください。</p>
       <a class="sns-link" href="https://x.com/fantastickjug" target="_blank" rel="noopener">X（旧Twitter） @fantastickjug をフォロー</a>
     </div>
     <div>
-      <form class="form-mock" onsubmit="return false;">
-        <input type="text" placeholder="お名前">
-        <input type="email" placeholder="メールアドレス">
-        <textarea placeholder="お問い合わせ内容"></textarea>
-        <button type="submit" class="btn btn-primary">送信する</button>
-        <p class="form-note">※現在はデザイン確認用のダミーフォームです。送信機能は開発時に接続します。</p>
+      <form class="form-mock" id="contactForm">
+        <input type="text" name="name" placeholder="お名前" required>
+        <input type="email" name="email" placeholder="メールアドレス" required>
+        <textarea name="message" placeholder="お問い合わせ内容" required></textarea>
+        <button type="submit" class="btn btn-primary" id="contactSubmit">送信する</button>
+        <p class="form-note" id="contactStatus" role="status"></p>
       </form>
     </div>
   </div>
@@ -622,7 +622,7 @@
     <span class="wordmark" style="font-size:1rem;">FantaStick</span>
     <span>FantaStick実行委員会 主催 ／ 2004年より開催</span>
     <div style="width:100%;text-align:center;font-size:0.7rem;opacity:0.6;">動作確認中</div>
-    <span>© <span id="copyrightYear">2026</span> FantaStick実行委員会</span>
+    <span><span id="copyrightYear">2026</span> FantaStick実行委員会</span>
   </div>
 </footer>
 
@@ -739,6 +739,41 @@
   if(typeof SITE_CONTENT !== 'undefined'){
     applyContent(SITE_CONTENT);
   }
+
+  // ---- お問い合わせフォーム（FormSubmit経由で contactEmail 宛にメール送信）----
+  (function(){
+    const form = document.getElementById('contactForm');
+    if(!form || typeof SITE_CONTENT === 'undefined' || !SITE_CONTENT.contactEmail) return;
+    const btn = document.getElementById('contactSubmit');
+    const status = document.getElementById('contactStatus');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      btn.disabled = true;
+      status.textContent = '送信中です…';
+      try{
+        const res = await fetch('https://formsubmit.co/ajax/' + SITE_CONTENT.contactEmail, {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+          body: JSON.stringify({
+            name: form.name.value,
+            email: form.email.value,
+            message: form.message.value,
+            _subject: 'FantaStick公式サイトからのお問い合わせ',
+            _replyto: form.email.value
+          })
+        });
+        const data = await res.json();
+        if(!res.ok || String(data.success) === 'false') throw new Error('send failed');
+        form.reset();
+        status.textContent = '送信しました。お問い合わせありがとうございます。';
+      }catch(err){
+        status.textContent = '送信に失敗しました。時間をおいて再度お試しいただくか、X（旧Twitter）からご連絡ください。';
+      }finally{
+        btn.disabled = false;
+      }
+    });
+  })();
 </script>
 
 </body>
