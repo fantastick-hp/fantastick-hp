@@ -74,11 +74,17 @@ const SITE_CONTENT = {
     // { date: "2026年3月1日", text: "公式サイトを公開しました。" },
   ],
 
+  // ---- 入場画面に表示する画像（画像のパス。空なら何も表示しません）----
+  introImage: "",   // 例: "images/intro.png"
+
   // ---- 協賛企業・団体（空のままなら「準備中」表示）----
   // name は必須。url（https://…）と logo（画像のURLまたはパス）は省略できます。
   sponsors: [
     // { name: "株式会社〇〇", url: "https://example.com", logo: "images/sponsor1.png" },
   ],
+
+  // 協賛のお申し込み・ご相談フォームのURL（空なら「お問い合わせ」への案内のみ表示）
+  sponsorFormUrl: "https://forms.gle/nW7GAbELQYGAGCnt7",
 
   // ---- お問い合わせフォームの送信先メールアドレス ----
   contactEmail: "juggling.fantastick@gmail.com",

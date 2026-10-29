@@ -86,10 +86,11 @@
     font-size:clamp(2.6rem,9vw,5.5rem);line-height:1;
     opacity:0;animation:riseIn .8s ease forwards;animation-delay:.1s;
   }
-  .intro-content .intro-tagline{
-    margin-top:14px;color:var(--text-muted-dark);font-size:1rem;
+  .intro-content .intro-image{
+    display:block;margin:22px auto 0;max-width:min(420px,70vw);max-height:32vh;width:auto;height:auto;
     opacity:0;animation:riseIn .8s ease forwards;animation-delay:.3s;
   }
+  .intro-content .intro-image[hidden]{display:none;}
   .intro-hint{
     margin-top:56px;display:flex;flex-direction:column;align-items:center;gap:10px;
     color:var(--text-muted-dark);font-size:0.85rem;
@@ -105,7 +106,7 @@
   }
   .intro-screen.is-closing{opacity:0;visibility:hidden;}
   @media(prefers-reduced-motion:reduce){
-    .intro-content .wordmark, .intro-content .intro-tagline, .intro-hint, .intro-hint .chevron{
+    .intro-content .wordmark, .intro-content .intro-image, .intro-hint, .intro-hint .chevron{
       animation:none;opacity:1;
     }
   }
@@ -341,6 +342,16 @@
   /* ---------- SPONSORS ---------- */
   .sponsors{background:var(--paper-dim);}
   .sponsors h2{border-left:5px solid var(--spot-magenta);padding-left:18px;}
+  .plan-title{font-size:1.15rem;font-weight:700;margin:32px 0 14px;}
+  .plan-wrap{overflow-x:auto;border-radius:16px;background:var(--ink);}
+  .plan-table{border-collapse:collapse;width:100%;min-width:560px;color:var(--text-on-dark);text-align:center;}
+  .plan-table th,.plan-table td{padding:14px 10px;border:1px solid rgba(255,255,255,0.14);}
+  .plan-table thead th{background:var(--spot-cyan);color:var(--ink);font-size:0.86rem;line-height:1.4;white-space:nowrap;}
+  .plan-table tbody th{font-size:0.98rem;white-space:nowrap;background:rgba(255,255,255,0.04);}
+  .plan-table tbody tr:last-child{background:rgba(255,61,127,0.10);}
+  .plan-table .yes{display:block;font-size:1.3rem;font-weight:700;color:var(--spot-yellow);line-height:1.2;}
+  .plan-table .no{color:var(--text-muted-dark);opacity:0.6;}
+  .plan-table small{display:block;font-size:0.72rem;color:var(--text-muted-dark);}
   .sponsor-list{
     display:grid;grid-template-columns:repeat(auto-fill,minmax(min(220px,100%),1fr));
     gap:18px;margin-top:32px;list-style:none;
@@ -353,7 +364,7 @@
   }
   .sponsor-item a:hover{outline:2px solid var(--spot-magenta);}
   .sponsor-item img{max-height:64px;width:auto;object-fit:contain;}
-  .sponsor-cta{margin-top:24px;font-size:0.95rem;color:var(--text-muted-light);}
+  .sponsor-cta{margin-top:24px;margin-bottom:14px;font-size:0.95rem;color:var(--text-muted-light);}
 
   /* ---------- SPONSOR / CONTACT ---------- */
   .contact{background:var(--ink);color:var(--text-on-dark);}
@@ -396,7 +407,7 @@
 <div class="intro-screen" id="introScreen" aria-hidden="true">
   <div class="intro-content">
     <div class="wordmark">FantaStick</div>
-    <p class="intro-tagline">犬も歩けば棒でジャグる</p>
+    <img class="intro-image" id="introImage" alt="" hidden>
     <div class="intro-hint">
       <span>スクロール または タップして進む</span>
       <span class="chevron"></span>
@@ -570,7 +581,7 @@
 <section class="tickets" id="tickets">
   <div class="container">
     <h2>参加費</h2>
-    <p class="lede">参加費は当日お支払いのうえご参加ください。イベント参加と、SticKING出場エントリーは別料金です。</p>
+    <p class="lede">参加費は当日受付にてお支払いください。イベント参加と、SticKING出場エントリーは別料金です。</p>
     <div class="price-grid">
       <div class="price-card">
         <h3>イベント参加</h3>
@@ -620,8 +631,50 @@
   <div class="container">
     <h2>協賛</h2>
     <p class="lede" id="sponsorLede">FantaStickは、ご協賛いただく企業・団体の皆さまに支えられて開催しています。協賛企業・団体の紹介は現在準備中です。<span class="todo-tag">準備中</span></p>
+    <h3 class="plan-title">協賛プラン特典一覧</h3>
+    <div class="plan-wrap">
+      <table class="plan-table">
+        <thead>
+          <tr>
+            <th scope="col">プラン</th>
+            <th scope="col">HP・パンフへの<br>お名前の掲載</th>
+            <th scope="col">閉会式での<br>ご紹介</th>
+            <th scope="col">閉会式での<br>告知</th>
+            <th scope="col">ポスター掲載</th>
+            <th scope="col">参加費無料</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">3,000円プラン</th>
+            <td><span class="yes" aria-label="あり">○</span><small>文字小</small></td>
+            <td><span class="no" aria-label="なし">―</span></td>
+            <td><span class="no" aria-label="なし">―</span></td>
+            <td><span class="no" aria-label="なし">―</span></td>
+            <td><span class="no" aria-label="なし">―</span></td>
+          </tr>
+          <tr>
+            <th scope="row">5,000円プラン</th>
+            <td><span class="yes" aria-label="あり">○</span><small>文字大</small></td>
+            <td><span class="yes" aria-label="あり">○</span></td>
+            <td><span class="no" aria-label="なし">―</span></td>
+            <td><span class="yes" aria-label="あり">○</span></td>
+            <td><span class="no" aria-label="なし">―</span></td>
+          </tr>
+          <tr>
+            <th scope="row">10,000円プラン</th>
+            <td><span class="yes" aria-label="あり">○</span><small>文字大＋ロゴ</small></td>
+            <td><span class="yes" aria-label="あり">○</span></td>
+            <td><span class="yes" aria-label="あり">○</span></td>
+            <td><span class="yes" aria-label="あり">○</span></td>
+            <td><span class="yes" aria-label="あり">○</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     <ul class="sponsor-list" id="sponsorList"></ul>
-    <p class="sponsor-cta">協賛のご相談は<a href="#contact">お問い合わせ</a>からご連絡ください。</p>
+    <p class="sponsor-cta" id="sponsorCta">協賛のご相談は<a href="#contact">お問い合わせ</a>からご連絡ください。</p>
+    <a href="#" id="sponsorFormBtn" class="btn btn-dark" hidden>協賛のお申し込み・ご相談はこちら</a>
   </div>
 </section>
 
@@ -676,6 +729,13 @@
   }
 
   function applyContent(c){
+    // 入場画面の画像
+    if(c.introImage){
+      const introImg = document.getElementById('introImage');
+      introImg.src = c.introImage;
+      introImg.hidden = false;
+    }
+
     // お知らせ
     const newsListEl = document.getElementById('newsList');
     const newsEmptyEl = document.getElementById('newsEmpty');
@@ -754,6 +814,14 @@
     }
 
     // 協賛
+    if(/^https?:\/\//.test(c.sponsorFormUrl || '')){
+      const sponsorBtn = document.getElementById('sponsorFormBtn');
+      sponsorBtn.href = c.sponsorFormUrl;
+      sponsorBtn.target = '_blank';
+      sponsorBtn.rel = 'noopener';
+      sponsorBtn.hidden = false;
+      document.getElementById('sponsorCta').textContent = '協賛をご検討いただける企業・団体の皆さまは、下のフォームからご連絡ください。';
+    }
     if(c.sponsors && c.sponsors.length){
       document.getElementById('sponsorLede').textContent = 'FantaStickは、ご協賛いただく企業・団体の皆さまに支えられて開催しています。';
       const listEl = document.getElementById('sponsorList');
