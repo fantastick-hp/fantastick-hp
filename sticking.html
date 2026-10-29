@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SticKING 開催要項 | FantaStick2026</title>
+<meta name="description" content="FantaStick2026 SticKING（スティックジャグリング競技会）の開催要項。部門・審査・出場申込み・注意事項をまとめています。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14121f;
+    --ink-soft:#211d33;
+    --paper:#f7f3ea;
+    --paper-dim:#ece5d3;
+    --spot-yellow:#ffc93c;
+    --spot-magenta:#ff3d7f;
+    --spot-cyan:#2ee6d6;
+    --text-on-dark:#f4f0e6;
+    --text-muted-dark:#b8afd1;
+    --text-on-light:#211a33;
+    --text-muted-light:#5b527a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;overflow-x:hidden;}
+  body{
+    font-family:'Noto Sans JP',sans-serif;
+    background:var(--paper);
+    color:var(--text-on-light);
+    line-height:1.8;
+    font-size:16px;
+    overflow-x:hidden;
+  }
+  a{color:inherit;}
+  .wordmark{font-family:'Bungee',sans-serif;letter-spacing:0.01em;}
+  .container{max-width:1080px;margin:0 auto;padding:0 24px;}
+
+  .todo-tag{
+    display:inline-flex;align-items:center;gap:6px;
+    font-size:0.72rem;font-weight:700;padding:3px 12px;
+    border:1px solid var(--spot-magenta);color:var(--spot-magenta);
+    border-radius:999px;margin-left:10px;vertical-align:middle;white-space:nowrap;
+  }
+  .todo-tag::before{content:"●";font-size:0.55rem;}
+
+  /* ---------- NAV ---------- */
+  .site-nav{
+    position:sticky;top:0;z-index:100;
+    border-bottom:1px solid rgba(255,255,255,0.06);
+  }
+  .site-nav::before{
+    content:"";position:absolute;inset:0;z-index:-1;
+    background:rgba(20,18,31,0.94);
+    backdrop-filter:blur(8px);
+  }
+  .nav-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 24px;max-width:1080px;margin:0 auto;
+  }
+  .nav-logo{color:var(--paper);font-size:1.4rem;text-decoration:none;}
+  .nav-links{display:flex;align-items:center;gap:30px;list-style:none;}
+  .nav-links a{
+    color:var(--text-muted-dark);text-decoration:none;
+    font-size:0.9rem;font-weight:500;transition:color .2s;
+  }
+  .nav-links a:hover{color:var(--spot-yellow);}
+  .nav-cta{
+    background:var(--spot-magenta);color:var(--text-on-dark)!important;
+    padding:9px 20px;border-radius:999px;font-weight:700;font-size:0.86rem;
+  }
+  .nav-toggle{display:none;background:none;border:0;color:var(--paper);font-size:1.6rem;cursor:pointer;}
+  @media(max-width:860px){
+    .nav-links{
+      position:fixed;top:60px;left:0;right:0;bottom:0;z-index:100;
+      background:var(--ink);flex-direction:column;justify-content:flex-start;
+      padding:36px 24px;gap:26px;transform:translateX(100%);
+      transition:transform .3s ease;overflow-y:auto;
+    }
+    .nav-links.open{transform:translateX(0);}
+    .nav-links a{font-size:1.1rem;}
+    .nav-toggle{display:block;}
+  }
+
+  /* ---------- DOC HERO ---------- */
+  .doc-hero{
+    position:relative;overflow:hidden;
+    background:var(--ink);color:var(--text-on-dark);
+    padding:72px 0 64px;
+  }
+  .doc-hero::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:
+      radial-gradient(560px 420px at 15% 15%, rgba(255,201,60,0.16), transparent 70%),
+      radial-gradient(620px 480px at 85% 30%, rgba(255,61,127,0.20), transparent 70%),
+      radial-gradient(500px 400px at 60% 90%, rgba(46,230,214,0.14), transparent 70%);
+  }
+  .doc-hero .container{position:relative;}
+  .back-link{display:inline-block;color:var(--text-muted-dark);font-size:0.9rem;text-decoration:none;margin-bottom:28px;}
+  .back-link:hover{color:var(--spot-yellow);}
+  .doc-kicker{color:var(--text-muted-dark);font-size:0.95rem;font-weight:500;margin-bottom:10px;}
+  .doc-hero h1{
+    font-size:clamp(1.9rem,5.4vw,3.2rem);font-weight:900;line-height:1.25;margin-bottom:22px;
+  }
+  .doc-hero h1 .wordmark{display:block;font-size:0.62em;font-weight:400;color:var(--spot-yellow);margin-bottom:6px;}
+  .doc-contact{color:var(--text-muted-dark);font-size:0.92rem;}
+  .doc-contact a{color:var(--spot-cyan);}
+
+  /* ---------- DOC BODY ---------- */
+  .doc{max-width:820px;margin:0 auto;padding:56px 24px 96px;}
+  .doc h2{
+    font-size:clamp(1.4rem,3vw,1.9rem);font-weight:900;line-height:1.35;
+    border-left:5px solid var(--spot-cyan);padding-left:16px;
+    margin:64px 0 24px;scroll-margin-top:84px;
+  }
+  .doc h2.c2{border-left-color:var(--spot-magenta);}
+  .doc h2.c3{border-left-color:var(--spot-yellow);}
+  .doc h2 .no{font-family:'Bungee',sans-serif;font-weight:400;margin-right:10px;color:var(--text-muted-light);}
+  .doc h3{font-size:1.15rem;font-weight:700;margin:36px 0 12px;scroll-margin-top:84px;}
+  .doc h3 .no, .doc h4 .no{color:var(--text-muted-light);margin-right:8px;font-weight:500;}
+  .doc h4{font-size:1.02rem;font-weight:700;margin:24px 0 8px;}
+  .doc p{margin-bottom:12px;}
+  .doc ul,.doc ol{margin:0 0 14px 1.4em;}
+  .doc li{margin-bottom:4px;}
+  .muted{color:var(--text-muted-light);}
+  .small{font-size:0.88rem;}
+
+  .changes{
+    background:var(--ink);color:var(--text-on-dark);
+    border-radius:18px;padding:24px 28px;margin-bottom:28px;
+  }
+  .changes h2{all:unset;display:block;font-weight:700;font-size:1rem;color:var(--spot-yellow);margin-bottom:8px;}
+  .changes ul{margin-bottom:0;}
+
+  .toc{background:var(--paper-dim);border-radius:18px;padding:22px 28px;}
+  .toc h2{all:unset;display:block;font-weight:700;margin-bottom:8px;}
+  .toc ol{margin:0 0 0 1.3em;}
+  .toc a{text-decoration:none;}
+  .toc a:hover{text-decoration:underline;}
+
+  .fact{margin:0 0 14px;border-top:1px solid rgba(33,26,51,0.14);}
+  .fact div{display:flex;gap:16px;padding:10px 0;border-bottom:1px solid rgba(33,26,51,0.14);}
+  .fact dt{flex:none;width:5em;color:var(--text-muted-light);font-weight:700;}
+  .fact dd{flex:1;}
+
+  .card{
+    border-radius:18px;padding:22px 26px;margin:0 0 18px;
+    background:var(--paper-dim);
+  }
+  .card h4{margin-top:0;}
+  .card ul{margin-bottom:0;}
+  .tag{
+    display:inline-block;font-size:0.78rem;font-weight:700;color:var(--ink);
+    padding:3px 12px;border-radius:999px;margin-bottom:10px;
+  }
+  .tag.junior{background:var(--spot-yellow);}
+  .tag.senior{background:var(--spot-magenta);}
+  .tag.free{background:var(--spot-cyan);}
+
+  .criteria{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:16px;margin:0 0 18px;}
+  .criteria .card{margin:0;}
+  .criteria .card h4 .n{display:inline-block;color:var(--spot-magenta);margin-right:6px;}
+
+  .table-wrap{overflow-x:auto;margin:0 0 14px;}
+  table{border-collapse:collapse;width:100%;min-width:420px;}
+  th,td{text-align:left;padding:10px 14px;border-bottom:1px solid rgba(33,26,51,0.14);}
+  th{background:var(--paper-dim);font-size:0.9rem;}
+  td.num{font-weight:700;white-space:nowrap;}
+
+  .note{
+    background:var(--paper-dim);border-left:5px solid var(--spot-magenta);
+    border-radius:12px;padding:14px 18px;margin:0 0 14px;font-size:0.94rem;
+  }
+  .note p{margin:0;}
+
+  .cta{margin-top:56px;text-align:center;}
+  .btn{
+    display:inline-block;padding:14px 30px;border-radius:999px;
+    font-weight:700;font-size:0.98rem;text-decoration:none;
+    background:var(--spot-magenta);color:var(--text-on-dark);
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{background:#0d0c14;color:var(--text-muted-dark);padding:40px 0;font-size:0.85rem;}
+  .footer-inner{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;align-items:center;}
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html#top" class="nav-logo wordmark">FantaStick</a>
+    <button class="nav-toggle" id="navToggle" aria-label="メニュー">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html#news">お知らせ</a></li>
+      <li><a href="index.html#about">概要</a></li>
+      <li><a href="index.html#sticking">SticKING</a></li>
+      <li><a href="index.html#program">プログラム</a></li>
+      <li><a href="index.html#tickets">参加費</a></li>
+      <li><a href="index.html#access">アクセス</a></li>
+      <li><a href="index.html#contact" class="nav-cta">お問い合わせ</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="doc-hero">
+  <div class="container">
+    <a href="index.html#sticking" class="back-link">← トップページに戻る</a>
+    <p class="doc-kicker">FantaStick2026実行委員会</p>
+    <h1><span class="wordmark">FantaStick2026</span>SticKING 開催要項</h1>
+    <p class="doc-contact">実行委員会連絡先：juggling.fantastick☆gmail.com（☆を@に変換）<br>
+      または<a href="index.html#contact">トップページのお問い合わせフォーム</a>からご連絡ください。</p>
+  </div>
+</header>
+
+<main class="doc">
+
+  <aside class="changes">
+    <h2>2025年度からの主な変更点</h2>
+    <ul>
+      <li>フリーパフォーマンス部門の追加</li>
+      <li>出場枠の確保にあたる優先順位、抽選を規定</li>
+      <li>負傷時の対応について規定</li>
+    </ul>
+  </aside>
+
+  <nav class="toc" aria-label="目次">
+    <h2>目次</h2>
+    <ol>
+      <li><a href="#overview">大会概要</a></li>
+      <li><a href="#divisions">部門・審査について</a></li>
+      <li><a href="#entry">出場申込みについて</a></li>
+      <li><a href="#notes">注意事項</a></li>
+    </ol>
+  </nav>
+
+  <!-- 1 -->
+  <h2 id="overview"><span class="no">1</span>大会概要</h2>
+
+  <h3><span class="no">1.1</span>本大会について</h3>
+  <p>FantaStick2026 SticKING（以下「本大会」）はFantaStick2026の内部イベントの一つである。</p>
+  <p>本大会はスティックジャグリングの発展に寄与する事を目的としたコンペティションイベントである。</p>
+
+  <h3><span class="no">1.2</span>日時・会場等</h3>
+  <dl class="fact">
+    <div><dt>名称</dt><dd>FantaStick2026 SticKING</dd></div>
+    <div><dt>日程</dt><dd>2027年2月27日</dd></div>
+    <div><dt>会場</dt><dd>かながわアートホール</dd></div>
+  </dl>
+
+  <h3><span class="no">1.3</span>部門</h3>
+  <p>本大会では以下3部門を設置する。</p>
+  <ul>
+    <li>ジュニア部門（スティックジャグリング歴2年以下 / 審査員審査）</li>
+    <li>シニア部門（歴による制限無し / 審査員審査）</li>
+    <li>フリーパフォーマンス部門（歴による制限無し / 審査無し）</li>
+  </ul>
+  <div class="note">
+    <p>＊全ての部門において、個人及び複数人での演技が可能である<br>
+    ＊ジュニア部門、シニア部門はスティックジャグリングによる演技のみ可能<br>
+    ＊フリーパフォーマンス部門は誰でも演技可能</p>
+  </div>
+
+  <!-- 2 -->
+  <h2 id="divisions" class="c2"><span class="no">2</span>部門・審査について</h2>
+
+  <h3><span class="no">2.1</span>部門詳細</h3>
+
+  <div class="card">
+    <span class="tag junior">ジュニア部門</span>
+    <h4><span class="no">2.1.1</span>ジュニア部門（スティックジャグリング歴2年以下 / 審査員審査）</h4>
+    <ul>
+      <li>出場資格：スティックジャグリング歴2年以下が参加可能。スティックジャグリングによる演技である事</li>
+      <li>演技時間：4分以内</li>
+      <li>複数人による演技も可能</li>
+      <li>審査は「2.2 審査項目」に沿って行う</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <span class="tag senior">シニア部門</span>
+    <h4><span class="no">2.1.2</span>シニア部門（歴による制限無し / 審査員審査）</h4>
+    <ul>
+      <li>出場資格：誰でも参加可能。スティックジャグリングによる演技である事</li>
+      <li>演技時間：6分以内</li>
+      <li>複数人による演技も可能</li>
+      <li>審査は「2.2 審査項目」に沿って行う</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <span class="tag free">フリーパフォーマンス部門</span>
+    <h4><span class="no">2.1.3</span>フリーパフォーマンス部門（歴による制限無し / 審査無し）</h4>
+    <ul>
+      <li>出場資格：誰でも参加可能。ジャグリングの演技である事</li>
+      <li>演技時間：5分以内（演技時間延長の希望については応相談）</li>
+      <li>複数人による演技も可能</li>
+      <li>本部門では審査を実施しない</li>
+    </ul>
+  </div>
+  <div class="note">
+    <p>＊本部門はジュニア部門及びシニア部門のエントリー状況によっては開催されない可能性がある。詳しくは「3.4 フリーパフォーマンス部門についての注意事項」を参照。</p>
+  </div>
+
+  <h3><span class="no">2.2</span>審査項目</h3>
+  <p>審査は審査員が「難易度」「完成度」「演技構成」「新奇性」の4項目に基づき、計100点満点で審査する。<span class="todo-tag">配点表を準備</span></p>
+
+  <div class="criteria">
+    <div class="card">
+      <h4><span class="n">①</span>難易度</h4>
+      <p>その演技がどれほど難しいかを評価する。</p>
+      <p>1つ1つの技の難易度、技のコンビネーションやバリエーションの多さなどが評価の対象となる。なお、難易度の評価には「新奇性」は考慮されない。また、ドロップやミスによる難易度点の減点は行わないが、技は成功した範囲でのみ評価の対象とする。</p>
+      <p>ジャグリング以外の技術、例えばアクロバティックスなどのテクニックはそれ単独では技術点の評価の対象にはならないが、ジャグリングと組み合わされることで演技全体の難易度が上がるときは評価の対象となる。</p>
+    </div>
+    <div class="card">
+      <h4><span class="n">②</span>完成度</h4>
+      <p>演技中の技・シークエンスがどれだけ安定しているか、および演技者自身のルーチンに対する熟練度の高さを評価する。</p>
+      <p>技中のフォーム、道具操作の安定感、ミスからのスムーズなリカバリーなども評価の基準となる。ドロップやミスが多ければ減点の対象となる。</p>
+    </div>
+    <div class="card">
+      <h4><span class="n">③</span>演技構成</h4>
+      <p>演技の流れ、音楽との調和、衣装やキャラクター、使う道具やセット、演技全体の魅力及び芸術性などにより総合的に評価する。</p>
+      <p>ジャグリングに関係のない技術であっても全体的な演出をひきたてるものであれば、評価の対象となる。</p>
+    </div>
+    <div class="card">
+      <h4><span class="n">④</span>新奇性</h4>
+      <p>演技中の技、シークエンスがどれだけ珍しいか、およびジャグリング界の進歩に寄与しているかを評価する。斬新な道具の扱い方・発想・将来の発展性の有無・特有性についてなどが評価の対象となる。</p>
+    </div>
+  </div>
+
+  <h3><span class="no">2.3</span>減点項目（演技時間）について</h3>
+  <p>演技時間は以下に従い計測する。演技時間を超過した場合、超過時間に応じた減点が課せられる。</p>
+
+  <h4><span class="no">2.3.1</span>演技開始時点</h4>
+  <ul>
+    <li>曲の開始</li>
+    <li>演者が静止状態から演技・ジャグリングを始める</li>
+  </ul>
+  <p>以上2点のうち、いずれかが認められたとタイムキーパーが判断した時点を演技開始時点とする。</p>
+
+  <h4><span class="no">2.3.2</span>演技終了時点</h4>
+  <ul>
+    <li>フィニッシュポーズ</li>
+    <li>観客へのお辞儀</li>
+    <li>演技スペースからの退場</li>
+  </ul>
+  <p>以上3点のうち、いずれかが認められたとタイムキーパーが判断した時点を演技終了時点とする。</p>
+
+  <h4><span class="no">2.3.3</span>減点内容</h4>
+  <p>演技の制限時間は、ジュニア部門4分、シニア部門6分とする。制限時間を超えた場合、超過時間に応じて合計点から減点、または失格とする。</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>超過時間</th><th>減点内容</th></tr></thead>
+      <tbody>
+        <tr><td>10秒以内</td><td class="num">-5点</td></tr>
+        <tr><td>30秒以内</td><td class="num">-10点</td></tr>
+        <tr><td>30秒以上</td><td class="num">失格（この時点で強制退場のアナウンスを流す）</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3><span class="no">2.4</span>総合審査について</h3>
+  <p>以上の事項（2.1〜2.3）を踏まえた上で、審査員それぞれが審査を行う。審査員全員の点数の平均により順位を決定する。</p>
+  <p>なお、同得点の選手がいた場合、以下の優先順位で上位3名を決定する。</p>
+  <ol>
+    <li>難易度点と完成度の合計点が高い</li>
+    <li>審査員による多数決</li>
+  </ol>
+
+  <!-- 3 -->
+  <h2 id="entry" class="c3"><span class="no">3</span>出場申込みについて</h2>
+
+  <h3><span class="no">3.1</span>出場申込み</h3>
+  <p>出場申込みは公式HP及びXから案内する予定である。</p>
+
+  <h3><span class="no">3.2</span>エントリーフィーについて</h3>
+  <p>本大会のエントリーフィーは以下を予定している。</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>部門</th><th>エントリーフィー</th></tr></thead>
+      <tbody>
+        <tr><td>ジュニア部門</td><td class="num">3,000円</td></tr>
+        <tr><td>シニア部門</td><td class="num">4,000円</td></tr>
+        <tr><td>フリーパフォーマンス部門</td><td class="num">4,000円</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3><span class="no">3.3</span>ジュニア部門についての注意事項</h3>
+  <p>ジュニア部門はスティックジャグリング歴が2年以下の者のみ参加可能である。</p>
+  <p class="muted">例：2025年4月〜スティックジャグリングを始めたもの</p>
+  <p>虚偽の申告があった場合には出場権の剥奪などの対応を行う可能性がある。判断に困った場合、実行委員会まで連絡する事。</p>
+
+  <h3><span class="no">3.4</span>フリーパフォーマンス部門についての注意事項</h3>
+  <p>本大会はスティックジャグリングの発展に寄与する事を目的としたコンペティションイベントである。そのため、ジュニア部門及びシニア部門の応募が定員を大幅に超えた場合、これら2部門の演技枠を確保するため、フリーパフォーマンス部門の開催を中止する可能性がある。</p>
+  <p>また、フリーパフォーマンス部門に定員を超える応募があった場合、スティックジャグリングの演技を行う者に対して優先的に演技枠を用意する。</p>
+
+  <h3><span class="no">3.5</span>抽選</h3>
+  <p>上記（3.1〜3.4）を踏まえた上で、先着で演技枠を用意する第一部、及び抽選で演技枠を用意する第二部、計二度の募集を行う。</p>
+  <ul>
+    <li><strong>第一部：</strong>ジュニア部門、シニア部門について、定員の半分を先着順に決定する。</li>
+    <li><strong>第二部：</strong>ジュニア部門、シニア部門、フリーパフォーマンス部門について定員を抽選で決定する。なお、フリーパフォーマンス部門開催については「3.4」に従う。</li>
+  </ul>
+
+  <!-- 4 -->
+  <h2 id="notes"><span class="no">4</span>注意事項</h2>
+
+  <h3><span class="no">4.1</span>禁止行為</h3>
+  <p>以下に該当する行為を禁止とする。</p>
+  <ul>
+    <li>公序良俗に反する演技</li>
+    <li>火を用いた演技</li>
+    <li>会場、及び観客を傷つけたり、危険をもたらす恐れのある演技</li>
+    <li>その他、FantaStick2026実行委員会が危険と判断した演技</li>
+  </ul>
+
+  <h3><span class="no">4.2</span>観覧・会場利用にあたって</h3>
+  <ul>
+    <li>緊急時はスタッフの指示に従うこと。</li>
+    <li>演技中のフラッシュ撮影は禁止とする。</li>
+    <li>各演技の撮影可否については、演技前にアナウンスを行う。許可のない演者の撮影、SNSへの無断投稿等を行った場合は厳正に対処する。</li>
+    <li>ホール内での飲食は禁止である。飲食の際はホール外のロビーにて行う事。</li>
+    <li>会場内は禁煙である。</li>
+    <li>会場並びに備品の汚損が発生した場合、実行委員会は一切の責任を負わない。</li>
+  </ul>
+
+  <h3><span class="no">4.3</span>演技中の怪我について</h3>
+  <p>「演者が、演技の継続が困難な負傷を負った」と実行委員会が判断した場合、直ちに演技を中断し、適切な医療機関へ引き継ぐ。</p>
+  <p>原則として、この場合の該当選手の審査は「棄権扱い」となる。これらの負傷、演技の中断によって演者に生じる不利益について、実行委員会は一切の責任を負わない。</p>
+
+  <div class="cta">
+    <a href="index.html#tickets" class="btn">参加費・申し込みについて見る</a>
+  </div>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <a href="index.html#top" class="wordmark" style="font-size:1rem;text-decoration:none;">FantaStick</a>
+    <span>FantaStick実行委員会 主催 ／ 2004年より開催</span>
+    <span><span id="copyrightYear">2026</span> FantaStick実行委員会</span>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+  document.getElementById('copyrightYear').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

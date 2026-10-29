@@ -338,6 +338,23 @@
     font-family:'Bungee',sans-serif;font-size:0.85rem;color:var(--ink);border:2px solid var(--ink);
   }
 
+  /* ---------- SPONSORS ---------- */
+  .sponsors{background:var(--paper-dim);}
+  .sponsors h2{border-left:5px solid var(--spot-magenta);padding-left:18px;}
+  .sponsor-list{
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(min(220px,100%),1fr));
+    gap:18px;margin-top:32px;list-style:none;
+  }
+  .sponsor-list:empty{display:none;}
+  .sponsor-item a,.sponsor-item .sponsor-name-only{
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+    min-height:120px;padding:18px;background:var(--paper);border-radius:16px;
+    text-decoration:none;text-align:center;font-weight:700;
+  }
+  .sponsor-item a:hover{outline:2px solid var(--spot-magenta);}
+  .sponsor-item img{max-height:64px;width:auto;object-fit:contain;}
+  .sponsor-cta{margin-top:24px;font-size:0.95rem;color:var(--text-muted-light);}
+
   /* ---------- SPONSOR / CONTACT ---------- */
   .contact{background:var(--ink);color:var(--text-on-dark);}
   .contact h2{border-left:5px solid var(--spot-cyan);padding-left:18px;}
@@ -536,7 +553,7 @@
         </ul>
       </div>
     </div>
-    <p class="judge-note">部門の詳細な規定・注意事項・審査基準の全文は、別途公開する要項ページでご確認いただけます。<span class="todo-tag">要項ページを準備</span></p>
+    <p class="judge-note">部門の詳細な規定・注意事項・審査基準の全文は、<a href="sticking.html"><strong>SticKING開催要項</strong></a>でご確認いただけます。</p>
   </div>
 </section>
 
@@ -596,6 +613,15 @@
   <div class="container">
     <h2>グッズ</h2>
     <p class="lede">現在作成中です。詳細が決まり次第お知らせします。<span class="todo-tag">作成中</span></p>
+  </div>
+</section>
+
+<section class="sponsors" id="sponsors">
+  <div class="container">
+    <h2>協賛</h2>
+    <p class="lede" id="sponsorLede">FantaStickは、ご協賛いただく企業・団体の皆さまに支えられて開催しています。協賛企業・団体の紹介は現在準備中です。<span class="todo-tag">準備中</span></p>
+    <ul class="sponsor-list" id="sponsorList"></ul>
+    <p class="sponsor-cta">協賛のご相談は<a href="#contact">お問い合わせ</a>からご連絡ください。</p>
   </div>
 </section>
 
@@ -725,6 +751,36 @@
         flowEl.appendChild(div);
       });
       document.getElementById('programLede').textContent = '当日の流れです。';
+    }
+
+    // 協賛
+    if(c.sponsors && c.sponsors.length){
+      document.getElementById('sponsorLede').textContent = 'FantaStickは、ご協賛いただく企業・団体の皆さまに支えられて開催しています。';
+      const listEl = document.getElementById('sponsorList');
+      c.sponsors.forEach(s => {
+        const li = document.createElement('li');
+        li.className = 'sponsor-item';
+        const safeUrl = /^https?:\/\//.test(s.url || '') ? s.url : '';
+        const inner = safeUrl ? document.createElement('a') : document.createElement('div');
+        if(safeUrl){
+          inner.href = safeUrl;
+          inner.target = '_blank';
+          inner.rel = 'noopener';
+        } else {
+          inner.className = 'sponsor-name-only';
+        }
+        if(s.logo){
+          const img = document.createElement('img');
+          img.src = s.logo;
+          img.alt = s.name;
+          inner.appendChild(img);
+        }
+        const name = document.createElement('span');
+        name.textContent = s.name;
+        inner.appendChild(name);
+        li.appendChild(inner);
+        listEl.appendChild(li);
+      });
     }
 
     // SNS
