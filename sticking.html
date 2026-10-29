@@ -64,7 +64,7 @@
     color:var(--text-muted-dark);text-decoration:none;
     font-size:0.9rem;font-weight:500;transition:color .2s;
   }
-  .nav-links a:hover{color:var(--spot-yellow);}
+  .nav-links a:hover,.nav-links a.is-current{color:var(--spot-yellow);}
   .nav-cta{
     background:var(--spot-magenta);color:var(--text-on-dark)!important;
     padding:9px 20px;border-radius:999px;font-weight:700;font-size:0.86rem;
@@ -96,8 +96,13 @@
       radial-gradient(500px 400px at 60% 90%, rgba(46,230,214,0.14), transparent 70%);
   }
   .doc-hero .container{position:relative;}
-  .back-link{display:inline-block;color:var(--text-muted-dark);font-size:0.9rem;text-decoration:none;margin-bottom:28px;}
-  .back-link:hover{color:var(--spot-yellow);}
+  .breadcrumb{margin-bottom:28px;font-size:0.9rem;}
+  .breadcrumb ol{list-style:none;display:flex;flex-wrap:wrap;align-items:center;gap:6px;}
+  .breadcrumb li{color:var(--text-muted-dark);}
+  .breadcrumb li + li::before{content:"›";margin-right:6px;opacity:0.7;}
+  .breadcrumb a{color:var(--text-muted-dark);text-decoration:none;}
+  .breadcrumb a:hover{color:var(--spot-yellow);text-decoration:underline;}
+  .breadcrumb li[aria-current="page"]{color:var(--text-on-dark);font-weight:700;}
   .doc-kicker{color:var(--text-muted-dark);font-size:0.95rem;font-weight:500;margin-bottom:10px;}
   .doc-hero h1{
     font-size:clamp(1.9rem,5.4vw,3.2rem);font-weight:900;line-height:1.25;margin-bottom:22px;
@@ -194,7 +199,7 @@
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html#news">お知らせ</a></li>
       <li><a href="index.html#about">概要</a></li>
-      <li><a href="index.html#sticking">SticKING</a></li>
+      <li><a href="index.html#sticking" class="is-current">SticKING</a></li>
       <li><a href="index.html#program">プログラム</a></li>
       <li><a href="index.html#tickets">参加費</a></li>
       <li><a href="index.html#access">アクセス</a></li>
@@ -205,7 +210,13 @@
 
 <header class="doc-hero">
   <div class="container">
-    <a href="index.html#sticking" class="back-link">← トップページに戻る</a>
+    <nav class="breadcrumb" aria-label="現在のページ">
+      <ol>
+        <li><a href="index.html#top">トップ</a></li>
+        <li><a href="index.html#sticking">SticKING</a></li>
+        <li aria-current="page">開催要項</li>
+      </ol>
+    </nav>
     <p class="doc-kicker">FantaStick2026実行委員会</p>
     <h1><span class="wordmark">FantaStick2026</span>SticKING 開催要項</h1>
     <p class="doc-contact">実行委員会連絡先：juggling.fantastick☆gmail.com（☆を@に変換）<br>
