@@ -305,12 +305,6 @@
   /* ---------- TICKETS ---------- */
   .tickets{background:var(--paper);}
   .tickets h2{border-left:5px solid var(--spot-cyan);padding-left:18px;}
-  .no-ticket{
-    margin-top:8px;padding:16px 22px;background:var(--ink);color:var(--text-on-dark);
-    border-left:5px solid var(--spot-yellow);border-radius:12px;max-width:none;font-size:1.05rem;
-  }
-  .no-ticket + .lede{margin-top:16px;}
-  .no-ticket strong{color:var(--spot-yellow);font-size:1.25rem;display:block;}
   .price-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:40px;}
   .price-card{
     background:var(--paper-dim);border-radius:22px;padding:32px;
@@ -548,8 +542,8 @@
 
 <section class="program" id="program">
   <div class="container">
-    <h2>当日の流れ（例）</h2>
-    <p class="lede" style="color:var(--text-muted-dark);" id="programLede">下記は前回開催をもとにした一般的な流れの例です。確定次第、正式なタイムテーブルに差し替えます。<span class="todo-tag on-dark">タイムテーブル未確定</span></p>
+    <h2>当日の流れ</h2>
+    <p class="lede" style="color:var(--text-muted-dark);" id="programLede">タイムテーブルは現在準備中です。決まり次第お知らせします。<span class="todo-tag on-dark">準備中</span></p>
     <div class="flow" id="flowContainer">
       <!-- content.js の programFlow から自動生成されます -->
     </div>
@@ -559,12 +553,11 @@
 <section class="tickets" id="tickets">
   <div class="container">
     <h2>参加費</h2>
-    <p class="no-ticket"><strong>FantaStickにチケットはありません。</strong>参加費をお支払いのうえご参加ください。</p>
-    <p class="lede">イベント参加と、SticKING出場エントリーは別料金です。</p>
+    <p class="lede">参加費は当日お支払いのうえご参加ください。イベント参加と、SticKING出場エントリーは別料金です。</p>
     <div class="price-grid">
       <div class="price-card">
         <h3>イベント参加</h3>
-        <div class="price-row"><span class="k">事前申し込み</span><span class="v" id="priceGeneralAdvance">1,000円</span></div>
+        <div class="price-row"><span class="k">事前フォーム申し込み</span><span class="v" id="priceGeneralAdvance">1,000円</span></div>
         <div class="price-row"><span class="k">当日</span><span class="v" id="priceGeneralDoor">1,500円</span></div>
         <a href="#" id="ticketFormBtn" class="btn btn-dark disabled">イベント参加を申し込む<span class="todo-tag">フォーム準備中</span></a>
       </div>
@@ -723,14 +716,14 @@
     // 当日タイムテーブル
     const flowEl = document.getElementById('flowContainer');
     flowEl.innerHTML = '';
-    c.programFlow.forEach((step, i) => {
-      const div = document.createElement('div');
-      div.className = 'flow-step';
-      div.innerHTML = '<div class="flow-num">' + (i + 1) + '</div><div class="txt"></div>';
-      div.querySelector('.txt').textContent = step;
-      flowEl.appendChild(div);
-    });
     if(c.programConfirmed){
+      c.programFlow.forEach((step, i) => {
+        const div = document.createElement('div');
+        div.className = 'flow-step';
+        div.innerHTML = '<div class="flow-num">' + (i + 1) + '</div><div class="txt"></div>';
+        div.querySelector('.txt').textContent = step;
+        flowEl.appendChild(div);
+      });
       document.getElementById('programLede').textContent = '当日の流れです。';
     }
 
