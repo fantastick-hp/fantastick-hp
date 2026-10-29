@@ -45,14 +45,14 @@ const SITE_CONTENT = {
     highlightVideoUrl: "https://www.youtube.com/embed/fUqUXEWFuS0"
   },
 
-  // ---- チケット・参加費（去年と同額なら変更不要）----
+  // ---- 参加費（去年と同額なら変更不要）----
   tickets: {
-    generalAdvance: 1000,   // イベント参加：前売り
+    generalAdvance: 1000,   // イベント参加：事前申し込み
     generalDoor: 1500,      // イベント参加：当日
     juniorEntry: 3000,      // SticKING ジュニア部門 出場料
     seniorEntry: 4000       // SticKING シニア・フリー部門 出場料
   },
-  ticketFormUrl: "",   // イベント参加チケット申込フォームのURL（空なら「準備中」表示）
+  ticketFormUrl: "",   // イベント参加申込フォームのURL（空なら「準備中」表示）
   entryFormUrl: "",    // SticKINGエントリーフォームのURL（空なら「準備中」表示）
 
   // ---- 当日タイムテーブル ----

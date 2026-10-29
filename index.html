@@ -305,6 +305,12 @@
   /* ---------- TICKETS ---------- */
   .tickets{background:var(--paper);}
   .tickets h2{border-left:5px solid var(--spot-cyan);padding-left:18px;}
+  .no-ticket{
+    margin-top:8px;padding:16px 22px;background:var(--ink);color:var(--text-on-dark);
+    border-left:5px solid var(--spot-yellow);border-radius:12px;max-width:none;font-size:1.05rem;
+  }
+  .no-ticket + .lede{margin-top:16px;}
+  .no-ticket strong{color:var(--spot-yellow);font-size:1.25rem;display:block;}
   .price-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:40px;}
   .price-card{
     background:var(--paper-dim);border-radius:22px;padding:32px;
@@ -531,6 +537,7 @@
         <ul>
           <li><span class="k">演技時間</span><span class="v">5分以内</span></li>
           <li><span class="k">出場料</span><span class="v">4,000円</span></li>
+          <li><span class="k">複数人での出演</span><span class="v">可</span></li>
           <li><span class="k">順位付け</span><span class="v">なし</span></li>
         </ul>
       </div>
@@ -552,13 +559,14 @@
 <section class="tickets" id="tickets">
   <div class="container">
     <h2>参加費</h2>
-    <p class="lede">イベント参加チケットと、SticKING出場エントリーは別料金です。金額は前回実績を参考値として掲載しています。</p>
+    <p class="no-ticket"><strong>FantaStickにチケットはありません。</strong>参加費をお支払いのうえご参加ください。</p>
+    <p class="lede">イベント参加と、SticKING出場エントリーは別料金です。</p>
     <div class="price-grid">
       <div class="price-card">
-        <h3>イベント参加チケット</h3>
-        <div class="price-row"><span class="k">前売り</span><span class="v" id="priceGeneralAdvance">1,000円</span></div>
+        <h3>イベント参加</h3>
+        <div class="price-row"><span class="k">事前申し込み</span><span class="v" id="priceGeneralAdvance">1,000円</span></div>
         <div class="price-row"><span class="k">当日</span><span class="v" id="priceGeneralDoor">1,500円</span></div>
-        <a href="#" id="ticketFormBtn" class="btn btn-dark disabled">イベント参加チケットを申し込む<span class="todo-tag">フォーム準備中</span></a>
+        <a href="#" id="ticketFormBtn" class="btn btn-dark disabled">イベント参加を申し込む<span class="todo-tag">フォーム準備中</span></a>
       </div>
       <div class="price-card">
         <h3>SticKING 出場エントリー</h3>
@@ -685,12 +693,12 @@
       document.getElementById('highlightVideo').src = c.lastYear.highlightVideoUrl;
     }
 
-    // チケット・参加費
+    // 参加費
     document.getElementById('priceGeneralAdvance').textContent = c.tickets.generalAdvance.toLocaleString() + '円';
     document.getElementById('priceGeneralDoor').textContent = c.tickets.generalDoor.toLocaleString() + '円';
     document.getElementById('priceJunior').textContent = c.tickets.juniorEntry.toLocaleString() + '円';
     document.getElementById('priceSenior').textContent = c.tickets.seniorEntry.toLocaleString() + '円';
-    setFormButton('ticketFormBtn', c.ticketFormUrl, 'イベント参加チケットを申し込む');
+    setFormButton('ticketFormBtn', c.ticketFormUrl, 'イベント参加を申し込む');
     setFormButton('entryFormBtn', c.entryFormUrl, 'SticKINGにエントリーする');
 
     // アクセス（会場が未確定なら前回実績を表示）
