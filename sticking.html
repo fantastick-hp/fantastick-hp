@@ -171,6 +171,8 @@
   th,td{text-align:left;padding:10px 14px;border-bottom:1px solid rgba(33,26,51,0.14);}
   th{background:var(--paper-dim);font-size:0.9rem;}
   td.num{font-weight:700;white-space:nowrap;}
+  .score-table th:not(:first-child),.score-table td:not(:first-child){text-align:center;}
+  .score-table td:last-child{background:var(--paper-dim);}
 
   .note{
     background:var(--paper-dim);border-left:5px solid var(--spot-magenta);
@@ -314,7 +316,18 @@
   </div>
 
   <h3><span class="no">2.2</span>審査項目</h3>
-  <p>審査は審査員が「難易度」「完成度」「演技構成」「新奇性」の4項目に基づき、計100点満点で審査する。<span class="todo-tag">配点表を準備</span></p>
+  <p>審査は審査員が「難易度」「完成度」「演技構成」「新奇性」の4項目に基づき、計100点満点で審査する。配点は部門ごとに以下のとおりとする。</p>
+  <div class="table-wrap">
+    <table class="score-table">
+      <thead>
+        <tr><th>部門</th><th>難易度</th><th>完成度</th><th>演技構成</th><th>新奇性</th><th>計</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>ジュニア部門</td><td class="num">30</td><td class="num">30</td><td class="num">30</td><td class="num">10</td><td class="num">100</td></tr>
+        <tr><td>シニア部門</td><td class="num">40</td><td class="num">25</td><td class="num">20</td><td class="num">15</td><td class="num">100</td></tr>
+      </tbody>
+    </table>
+  </div>
 
   <div class="criteria">
     <div class="card">
