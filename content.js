@@ -75,7 +75,7 @@ const SITE_CONTENT = {
   ],
 
   // ---- 入場画面に表示する画像（画像のパス。空なら何も表示しません）----
-  introImage: "",   // 例: "images/intro.png"
+  introImage: "images/intro-logo.png",   // 例: "images/intro.png"
 
   // ---- 協賛企業・団体（空のままなら「準備中」表示）----
   // name は必須。url（https://…）と logo（画像のURLまたはパス）は省略できます。
