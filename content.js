@@ -52,8 +52,8 @@ const SITE_CONTENT = {
     juniorEntry: 3000,      // SticKING ジュニア部門 出場料
     seniorEntry: 4000       // SticKING シニア・フリー部門 出場料
   },
-  ticketFormUrl: "",   // イベント参加申込フォームのURL（空なら「準備中」表示）
-  entryFormUrl: "",    // SticKINGエントリーフォームのURL（空なら「準備中」表示）
+  ticketFormUrl: "https://docs.google.com/forms/d/1BnvnNvY8ARONMXW4JUH20cIWFjmRhNRBeaf7ku_ckaM/viewform",   // イベント参加申込フォームのURL（空なら「準備中」表示）
+  entryFormUrl: "https://docs.google.com/forms/d/11isWfYmHvszsqupVSxYhQuY1T5E0Q3VHbSPjKQbAq1s/viewform",    // SticKINGエントリーフォームのURL（空なら「準備中」表示）
 
   // ---- 当日タイムテーブル ----
   programConfirmed: false,   // タイムテーブルが決まったら true に（false の間は「準備中」表示で、下の programFlow は表示されません）
