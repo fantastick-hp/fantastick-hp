@@ -494,7 +494,7 @@
   <div class="container">
     <h2>お知らせ</h2>
     <div class="news-list" id="newsList"></div>
-    <p class="news-empty" id="newsEmpty">現在お知らせはありません。新しい情報が入り次第、こちらでお知らせします。</p>
+    <p class="news-empty" id="newsEmpty">現在お知らせはありません。</p>
   </div>
 </section>
 
@@ -526,7 +526,7 @@
 <section class="sticking" id="sticking">
   <div class="container">
     <h2>SticKING — 競技会</h2>
-    <p class="lede">棒ジャグリングの技と表現を競う、ルーティン形式の競技会です。ジュニア部門・シニア部門は「難易度」「完成度」「演技構成」「新奇性」の4項目、審査員3名による計100点満点で審査されます。フリーパフォーマンス部門は順位付けを行いません。</p>
+    <p class="lede">棒ジャグリングの技と表現を競う、ルーティン形式の競技会です。ジュニア部門・シニア部門は「難易度」「完成度」「演技構成」「新奇性」の4項目、計100点満点で審査されます。フリーパフォーマンス部門は順位付けを行いません。</p>
     <div class="division-grid">
       <div class="division-card junior">
         <span class="tag">ジュニア部門</span>
@@ -625,7 +625,7 @@
 <section class="sponsors" id="sponsors">
   <div class="container">
     <h2>協賛</h2>
-    <p class="lede" id="sponsorLede">FantaStickは、ご協賛いただく企業・団体の皆さまに支えられて開催しています。協賛企業・団体の紹介は現在準備中です。<span class="todo-tag">準備中</span></p>
+    <p class="lede">FantaStick2026ではご協賛くださる方を募集しております。頂いた資金は持続的な運営のために大切に活用させていただきます。</p>
     <h3 class="plan-title">協賛プラン特典一覧</h3>
     <div class="plan-wrap">
       <table class="plan-table">
@@ -818,7 +818,6 @@
       document.getElementById('sponsorCta').textContent = '協賛をご検討いただける企業・団体の皆さまは、下のフォームからご連絡ください。';
     }
     if(c.sponsors && c.sponsors.length){
-      document.getElementById('sponsorLede').textContent = 'FantaStickは、ご協賛いただく企業・団体の皆さまに支えられて開催しています。';
       const listEl = document.getElementById('sponsorList');
       c.sponsors.forEach(s => {
         const li = document.createElement('li');
